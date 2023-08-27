@@ -1,0 +1,19 @@
+<h1>Create New Chat Room</h1>
+
+<%= form_with(model: @chat_room) do |form| %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :privacy, style: "display: block" %>
+    <%= form.check_box :privacy %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Chat Rooms', chat_rooms_path %>

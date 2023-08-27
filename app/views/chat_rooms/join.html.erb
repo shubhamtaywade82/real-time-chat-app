@@ -1,0 +1,9 @@
+<h1>Join Chat Room: <%= @chat_room.name %></h1>
+
+<% if @chat_room.privacy %>
+  <!-- Add logic here for handling private chat room access -->
+<% else %>
+  <!-- Display content for joining the chat room -->
+<% end %>
+
+<%= link_to 'Back to Chat Rooms', chat_rooms_path %>

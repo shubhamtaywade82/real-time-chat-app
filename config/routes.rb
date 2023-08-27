@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  resources :chat_rooms, only: %i[index new create] do
+    member do
+      get 'join'
+    end
+  end
   devise_for :users
+
+  root to: 'home#index'
 end
