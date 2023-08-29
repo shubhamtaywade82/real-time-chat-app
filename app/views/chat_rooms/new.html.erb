@@ -1,18 +1,17 @@
 <h1>Create New Chat Room</h1>
 
-<%= form_with(model: @chat_room) do |form| %>
+<%= form_with(model: @chat_room, remote: true, class: 'd-flex') do |form| %>
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Room name", autocomplete: 'off' %>
   </div>
 
-  <div>
+  <div class="form-check">
     <%= form.label :privacy, style: "display: block" %>
-    <%= form.check_box :privacy %>
+    <%= form.check_box :privacy, { class: "form-check-label" }%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit data: { disable_with: false } %>
   </div>
 <% end %>
 
