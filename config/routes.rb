@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
-  resources :users, only: :index
+  resources :users, only: %i[index show]
   resources :chat_rooms, only: %i[index new create show] do
     resources :messages
     member do
@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   root to: 'chat_rooms#index'

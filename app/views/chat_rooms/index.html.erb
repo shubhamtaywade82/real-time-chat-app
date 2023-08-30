@@ -1,3 +1,18 @@
+<%# 
+<script>
+  function scrollToBottom() {
+    var messageContainer = document.getElementById("message-container");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+  }
+
+  // Call scrollToBottom after rendering new messages using Turbo Streams
+  document.addEventListener("turbo:load", scrollToBottom);
+
+  // Call scrollToBottom whenever a new message is received using Turbo Streams
+  document.addEventListener("turbo:stream-accepted", scrollToBottom);
+</script> %>
+
+
 <div class="row">
   <div class="col-md-2">
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
@@ -51,7 +66,7 @@
   </div>
   <div class="col-md-10 bg-dark text-light">
     <% if @chat_room %>
-      <h4 class="text-center"> <%= @chat_room.name %> </h4>
+      <h4 class="text-center"> <%= @user&.username || @chat_room.name %> </h4>
       <%= turbo_stream_from @chat_room %>
       <div id="messages">
         <%= render @messages %>
