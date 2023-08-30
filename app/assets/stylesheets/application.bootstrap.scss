@@ -5,12 +5,12 @@
 .msg-form {
   position: fixed;
   bottom: 0;
-  width: 90%
+  width: 95%
 }
 
 .col-md-10 {
-  height: 100vh;
-  overflow: scroll;
+  height: 95vh;
+  overflow-y: auto;
 }
 
 .msg-content {
